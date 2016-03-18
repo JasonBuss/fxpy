@@ -1,0 +1,7 @@
+# Holds project level variables
+
+location = "LOCATIONNAME"
+server = "SQLSERVERNAME"
+username = "SQLUSERNAME"
+password = "SQLUSERPASS"
+database = "DATABASENAME"
