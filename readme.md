@@ -1,5 +1,5 @@
 ## FX Python Scripts
-icrm python scripts
+Python scripts for ICRM
 
-### Tickets
+### fxTickets
 Scripts to manipulate ticket information
