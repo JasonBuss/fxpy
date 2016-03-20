@@ -22,7 +22,10 @@ class Ticket():
 			self.status = "Open"
 			self.duedate = GetDate()
 					
-	
+	def save():
+		"""Save ticket to DB"""
+		print('saved')
+		
 		
 class TicketActivity():
 	"""Instance of a ticket activity record"""

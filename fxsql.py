@@ -10,7 +10,7 @@ import fxsystem
 import pymssql as sql
 
 path = os.path.dirname(fxsystem.__file__)
-config = fxsystem.getVarFromFile(path + '\config\sql.config')
+config = fxsystem.get_varfromfile(path + '\config\sql.config')
 location = config.location
 
 conn = sql.connect(config.server, config.username, config.password, config.database)
@@ -34,3 +34,9 @@ def set_value(tablename, fieldname, value, where):
 	sql = "update dbo.{1} set {2} = {3} where {4}".format(tablename,fieldname,value,where)
 	cursor.execute(sql)
 	conn.commit()
+	
+def get_sqlstr(tablename, *fields):
+	x = tablename + "ID"
+	for field in fields:
+		x += ", " + field
+	return "select " + x + " from " + tablename
