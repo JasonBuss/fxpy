@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Python system functions
 # Author: Jason Buss
 # Created: 2016-02-09
@@ -6,17 +8,17 @@
 from os import getenv as a
 from os import environ as b
 
-def getSystemVar(VariableName):
+def get_systemvar(VariableName):
 	# can be used to get temporary system variable
 	server = a(VariableName)
 	return server
 	
-def setSystemVar(VariableName, Value):
+def set_systemvar(VariableName, Value):
 	# can be used to set temporary system variable
 	import os as x
 	b[VariableName] = Value
 	
-def getVarFromFile(filename):
+def get_varfromfile(filename):
 	# gets variables from file
 	import imp
 	f = open(filename)

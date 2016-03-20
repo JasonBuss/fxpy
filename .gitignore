@@ -67,3 +67,4 @@ target/
 
 #Config Files
 *.config
+*.template
