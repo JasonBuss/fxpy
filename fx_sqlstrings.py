@@ -19,7 +19,7 @@ def get_sqlselect(tablename, *fields):
 	return sql
 	
 def get_sqlupdate(tablename, ID, fieldname, value):
-	if tablename.upper() = "OPPORTUNITY_PRODUCT":
+	if tablename.upper() == "OPPORTUNITY_PRODUCT":
 		x = "OPPPRODUCTID"
 	else:
 		x = tablename + "ID"
