@@ -8,10 +8,33 @@
 import fx_sql as sql
 import fx_sqlstrings as sqlstr
 
-
+class Account():
+	"""Instance of an Account"""
+	def __init__(self, accountid)
+		self.accountid = accountid
+		record = sql.get_scalar(sqlstr.get_sqlselect("ACCOUNT", "ACCOUNT", "TYPE", "STATUS"))
+		self.accountname = record[0]
+		self.type = record[1]
+		self.status = record[2]
+		
+class Contact():
+	"""instance of a contact"""
+	def __init__(self, contactid)
+		self.contactid = contactid
+		record = sql.get_scalar(sqlstr.get_sqlselect("CONTACT", "TYPE", "ACCOUNTID", "ISPRIMARY", "LASTNAME", "FIRSTNAME", "MIDDLENAME", "STATUS", "TITLE", "WORKPHONE", "EMAIL"))
+		self.type = record[0]
+		self.accountid = record[1]
+		self.isprimary = record[2]
+		self.lastname = record[3]
+		self.firstname = record[4]
+		self.middlename = record[5]
+		self.status = record[6]
+		self.title = record[7]
+		self.workphone = record[8]
+		self.email = record[9]
+		
 class Ticket():
 	"""Instance of a ticket"""
-	# getValue(tablename, fieldname, where)
 	def __init__(self, ticketnumber):
 	
 		self.ticketid = ticketnumber
