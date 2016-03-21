@@ -7,4 +7,5 @@ This is all pretty preliminary, so don't expect too much right now.
 
 ### Data access
 These scripts do not use the Saleslogix OLEDB provider.  Instead, access is done using pymssql.
-Access is defined using the sql.config file in the config folder (sample provided)
+Access is defined using the sql.config file in the config folder (sample provided).  As Such, any updates 
+using these scripts will not be sync-aware.
