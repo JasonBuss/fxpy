@@ -1,5 +1,5 @@
-## FX Python Scripts
-Python scripts for ICRM
+## ICRM Python scripts
+Python scripts for InforCRM
 
-### fxTickets
-Scripts to manipulate ticket information
+### InforCRM
+Scripts designed to manipulate information in a Saleslogix/InforCRM database.
