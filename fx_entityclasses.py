@@ -12,7 +12,7 @@ class Account():
 	"""Instance of an Account"""
 	def __init__(self, accountid)
 		self.accountid = accountid
-		record = sql.get_scalar(sqlstr.get_sqlselect("ACCOUNT", "ACCOUNT", "TYPE", "STATUS") + sqlstr_sqlwhere("ACCOUNTID", accountid))
+		record = sql.get_scalar(sqlstr.get_sqlselect("ACCOUNT", "ACCOUNT", "TYPE", "STATUS") + sqlstr.sqlstr_sqlwhere("ACCOUNTID", accountid))
 		self.accountname = record[0]
 		self.type = record[1]
 		self.status = record[2]
@@ -21,7 +21,7 @@ class Contact():
 	"""instance of a contact"""
 	def __init__(self, contactid)
 		self.contactid = contactid
-		record = sql.get_scalar(sqlstr.get_sqlselect("CONTACT", "TYPE", "ACCOUNTID", "ISPRIMARY", "LASTNAME", "FIRSTNAME", "MIDDLENAME", "STATUS", "TITLE", "WORKPHONE", "EMAIL") + sqlstr_sqlwhere("CONTACTID", contactid))
+		record = sql.get_scalar(sqlstr.get_sqlselect("CONTACT", "TYPE", "ACCOUNTID", "ISPRIMARY", "LASTNAME", "FIRSTNAME", "MIDDLENAME", "STATUS", "TITLE", "WORKPHONE", "EMAIL") + sqlstr.sqlstr_sqlwhere("CONTACTID", contactid))
 		self.type = record[0]
 		self.accountid = record[1]
 		self.isprimary = record[2]
@@ -32,6 +32,17 @@ class Contact():
 		self.title = record[7]
 		self.workphone = record[8]
 		self.email = record[9]
+		
+class Opportunity():
+	"""Instance of an Opportunity"""
+	def __init__(self, opportunityid)
+		self.opportunityid = opportunityid
+		record = sql.get_scalar(sqlstr.get_sqlselect("OPPORTUNITY", "ACCOUNTID", "DESCRIPTION", "TYPE", "ESTIMATEDCLOSE", "NOTES") + sqlstr.sqlstr_sqlwhere("OPPORTUNITY", opportunityid))
+		self.accountid = record[0]
+		self.description = record[1]
+		self.type = record[2]
+		self.estimatedclose = record[3]
+		self.notes = record[4]
 		
 class Ticket():
 	"""Instance of a ticket"""
