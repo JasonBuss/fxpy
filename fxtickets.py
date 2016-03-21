@@ -15,7 +15,7 @@ class Ticket():
 	def __init__(self, ticketnumber):
 	
 		self.ticketid = ticketnumber
-		record = fx_sql.get_scalar(sqlstr.get_sqlselect("TICKET", 'ACCOUNTID', 'ASSIGNEDTOID', 'NEEDEDBYDATE', 'STATUSCODE', 'CONTACTID', 'ISSUE', 'NOTES'))
+		record = sql.get_scalar(sqlstr.get_sqlselect("TICKET", 'ACCOUNTID', 'ASSIGNEDTOID', 'NEEDEDBYDATE', 'STATUSCODE', 'CONTACTID', 'ISSUE', 'NOTES') + sqlstr.get_sqlwhere('ALTERNATEKEYSUFFIX', ticketnumber))
 		self.accountid = record[5]
 		self.assignedtoid = record[6]
 		self.neededbydate = record[7]
@@ -32,6 +32,6 @@ class Ticket():
 class TicketActivity():
 	"""Instance of a ticket activity record"""
 	
-	def __init__(self, ticketid)
+	def __init__(self, ticketid):
 	
 		self.ticketid = ticketid
