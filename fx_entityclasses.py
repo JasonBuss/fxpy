@@ -12,7 +12,7 @@ class Account():
 	"""Instance of an Account"""
 	def __init__(self, accountid)
 		self.accountid = accountid
-		record = sql.get_scalar(sqlstr.get_sqlselect("ACCOUNT", "ACCOUNT", "TYPE", "STATUS"))
+		record = sql.get_scalar(sqlstr.get_sqlselect("ACCOUNT", "ACCOUNT", "TYPE", "STATUS") + sqlstr_sqlwhere("ACCOUNTID", accountid))
 		self.accountname = record[0]
 		self.type = record[1]
 		self.status = record[2]
@@ -21,7 +21,7 @@ class Contact():
 	"""instance of a contact"""
 	def __init__(self, contactid)
 		self.contactid = contactid
-		record = sql.get_scalar(sqlstr.get_sqlselect("CONTACT", "TYPE", "ACCOUNTID", "ISPRIMARY", "LASTNAME", "FIRSTNAME", "MIDDLENAME", "STATUS", "TITLE", "WORKPHONE", "EMAIL"))
+		record = sql.get_scalar(sqlstr.get_sqlselect("CONTACT", "TYPE", "ACCOUNTID", "ISPRIMARY", "LASTNAME", "FIRSTNAME", "MIDDLENAME", "STATUS", "TITLE", "WORKPHONE", "EMAIL") + sqlstr_sqlwhere("CONTACTID", contactid))
 		self.type = record[0]
 		self.accountid = record[1]
 		self.isprimary = record[2]
