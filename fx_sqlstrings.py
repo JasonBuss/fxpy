@@ -12,7 +12,6 @@ def get_sqlselect(tablename, *fields):
 	else:
 		x = tablename + "ID"
 		
-	x = x + ", CREATEDATE, CREATEUSER, MODIFYDATE, MODIFYUSER"	
 	for field in fields:
 		x += ", " + field
 	sql = "select {0} from {1}".format(x, tablename).upper()
