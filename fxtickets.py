@@ -5,22 +5,24 @@
 # Created:	2016-03-17
 # Version: 	1.0
 
+import fx_sql as sql
+import fx_sqlstrings as sqlstr
+
 
 class Ticket():
 	"""Instance of a ticket"""
 	# getValue(tablename, fieldname, where)
-	def __init__(self, ticketnumber)
+	def __init__(self, ticketnumber):
 	
-		import fxsql as sql
-		
 		self.ticketid = ticketnumber
-		
-		if sql.getValue("count(*)", "ticket", "Ticketid={0}".format(ticketnumber)) > 0:
-			self.status = sql.getValue("Status", "Ticket", "TicketId={0}".format(ticketnumber))
-			self.duedate = sql.getValue("DueDate", "Ticket", "TicketId={0}".format(ticketnumber))
-		else:
-			self.status = "Open"
-			self.duedate = GetDate()
+		record = sql.get_scalar(sqlstr.get_sqlselect("TICKET", 'ACCOUNTID', 'ASSIGNEDTOID', 'NEEDEDBYDATE', 'STATUSCODE', 'CONTACTID', 'ISSUE', 'NOTES') + sqlstr.get_sqlwhere('ALTERNATEKEYSUFFIX', ticketnumber))
+		self.accountid = record[5]
+		self.assignedtoid = record[6]
+		self.neededbydate = record[7]
+		self.statuscode = record[8]
+		self.contactid = record[9]
+		self.issue = record[10]
+		self.notes = record[11]
 					
 	def save():
 		"""Save ticket to DB"""
@@ -30,6 +32,6 @@ class Ticket():
 class TicketActivity():
 	"""Instance of a ticket activity record"""
 	
-	def __init__(self, ticketid)
+	def __init__(self, ticketid):
 	
 		self.ticketid = ticketid
