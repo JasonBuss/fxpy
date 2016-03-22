@@ -6,25 +6,26 @@
 # Version: 	1.0
 
 import pymssql as sql
-from fx_config import database as db
 
+class SQLObj():
 
-conn = sql.connect(db.server, db.username, db.password, db.database)
-cursor = conn.cursor()
+	def __init__(self, server, username, password, database)
+		conn = sql.connect(server, username, password, database)
+		cursor = conn.cursor()
 
-def execute_sql(sql):
-	# Run a sql statement against the database
-	cursor.execute(sql)
-	conn.commit()
+	def execute_sql(sql):
+		# Run a sql statement against the database
+		cursor.execute(sql)
+		conn.commit()
 	
-def get_scalar(sql):
-	# get a single row from the database
-	cursor.execute(sql)
-	row = cursor.fetchone()	
-	return row
+	def get_scalar(sql):
+		# get a single row from the database
+		cursor.execute(sql)
+		row = cursor.fetchone()	
+		return row
 
-def get_values(sql):
-	# get multiple rows from the database
-	cursor.execute(sql)
-	row = cursor.fetchall()	
-	return row	
+	def get_values(sql):
+		# get multiple rows from the database
+		cursor.execute(sql)
+		row = cursor.fetchall()	
+		return row	
