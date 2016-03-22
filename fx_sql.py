@@ -8,6 +8,7 @@
 import pymssql as sql
 from fx_config import database as db
 
+
 conn = sql.connect(db.server, db.username, db.password, db.database)
 cursor = conn.cursor()
 
