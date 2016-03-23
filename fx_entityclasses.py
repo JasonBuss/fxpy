@@ -18,7 +18,7 @@ def getRecordCount(table, ID):
 
 class Account():
 	"""Instance of an Account"""
-	def __init__(self, accountid)
+	def __init__(self, accountid):
 		self.accountid = accountid
 		
 		select = sqlstr.get_sqlselect("ACCOUNT", "ACCOUNT", "TYPE", "STATUS")
@@ -31,7 +31,7 @@ class Account():
 		
 class Contact():
 	"""instance of a contact"""
-	def __init__(self, contactid)
+	def __init__(self, contactid):
 		
 		self.contactid = contactid
 		select = sqlstr.get_sqlselect("CONTACT", "TYPE", "ACCOUNTID", "ISPRIMARY", "LASTNAME", "FIRSTNAME", "MIDDLENAME", "STATUS", "TITLE", "WORKPHONE", "EMAIL")
@@ -51,7 +51,7 @@ class Contact():
 		
 class Opportunity():
 	"""Instance of an Opportunity"""
-	def __init__(self, opportunityid)
+	def __init__(self, opportunityid):
 		self.opportunityid = opportunityid
 		record = slxdb.get_scalar(sqlstr.get_sqlselect("OPPORTUNITY", "ACCOUNTID", "DESCRIPTION", "TYPE", "ESTIMATEDCLOSE", "NOTES") + sqlstr.sqlstr_sqlwhere("OPPORTUNITY", opportunityid))
 		self.accountid = record[0]
