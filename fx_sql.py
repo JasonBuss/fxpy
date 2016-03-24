@@ -11,7 +11,7 @@ class SQLObj():
 
 	def __init__(self, server, username, password, database)
 		conn = sql.connect(server, username, password, database)
-		cursor = conn.cursor()
+		cursor = conn.cursor(as_dict=true)
 
 	def execute_sql(sql):
 		# Run a sql statement against the database
